@@ -48,3 +48,5 @@ export async function updatePhoto(req: Request, res: Response): Promise<Response
         updatedPhoto
     });
 }
+
+//Do not touch anything here 
