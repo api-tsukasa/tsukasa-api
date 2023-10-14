@@ -1,14 +1,14 @@
-import express, { Application} from 'express';
+import express, { Application, Request, Response } from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import cors from 'cors';
 
-import indexRoutes from './routes/index'
+import indexRoutes from './routes/index';
 
-// Initializations
+// Inicializaciones
 const app: Application = express();
 
-// Settings
+// Configuraciones
 app.set('port', process.env.PORT || 4000);
 
 // Middlewares
@@ -16,10 +16,15 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Rutas
 app.use('/api', indexRoutes);
 
-// this folders for this application will be used to store public file images
+// Esta carpeta se utilizará para almacenar archivos públicos, como imágenes
 app.use('/uploads', express.static(path.resolve('uploads')));
+
+// Nuevo Endpoint
+app.get('/hello', (req: Request, res: Response) => {
+  res.send('¡Hola, mundo!');
+});
 
 export default app;
