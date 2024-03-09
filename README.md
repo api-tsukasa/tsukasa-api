@@ -4,7 +4,7 @@ This project is a simple web server written in Typescript using Nodejs and Mongo
 # Installation
 ```
 git clone https://github.com/api-tsukasa/tsukasa-api
-cd photo-gallery-api
+cd tsukasa-api
 npm install
 npm start
 ```
